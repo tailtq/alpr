@@ -1,5 +1,4 @@
 import torch
-import pickle
 import numpy as np
 
 
@@ -28,6 +27,9 @@ def l1(true, pred, szs):
 # TODO: Questions:
 # 1. Does the loss use unwarped or warped objects as the inputs?
 # 2. Why does the code warp the identity square?
+# - It warps identity square,
+# - Just for calculating loss between Y and Y_hat easier
+# - Using loss from identity rectangle (unwarped version) is not correct
 # 3. Why we need to use non-object loss? --> Verify when training
 def loss(Y_true, Y_pred):
     b, w, h, _ = Y_true.shape
