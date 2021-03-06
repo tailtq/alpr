@@ -9,4 +9,6 @@ class LicenseDataset(Dataset):
         return 0
 
     def __getitem__(self, index):
+        # augment_sample --> apply albumentation
+        # labels2output_map --> reimplement
         return

@@ -1,3 +1,8 @@
+## Network
+
+**Note:** This kind of network doesn't follow YOLO, SSD, or RCNN detection layers for multiple objects detection. So the output is just one object. Therefore, it's hard to add new labels to teach network ideas about car's windows, wheels...
+
+
 ## Loss function
 
 Utility: For measuring the difference between warped ground-truth and prediction. 
