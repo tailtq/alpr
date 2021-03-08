@@ -60,7 +60,7 @@ def write_labels_to_img(img, points: list, is_normalize=True):
     """
     height, width = img.shape[:2]
 
-    for point in points:
+    for i, point in enumerate(points):
         if is_normalize:
             x = int(point[0] * width)
             y = int(point[1] * height)
@@ -69,6 +69,7 @@ def write_labels_to_img(img, points: list, is_normalize=True):
             y = int(point[1])
 
         cv2.drawMarker(img, (x, y), (0, 0, 255), cv2.MARKER_SQUARE, 5)
+        cv2.putText(img, str(i), (x, y), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2)
 
     return img
 
@@ -90,8 +91,8 @@ def transform_img(img, labels):
 
 
 should_convert = True
-img = read_img("raw-data/0000001.jpg")
-labels = read_n_parse_label("raw-data/0000001.txt", should_convert, img.shape)
+img = read_img("raw-data/0000089.jpg")
+labels = read_n_parse_label("raw-data/0000089.txt", should_convert, img.shape)
 
 img, labels = transform_img(img, labels)
 img = write_labels_to_img(img, labels, is_normalize=not should_convert)
